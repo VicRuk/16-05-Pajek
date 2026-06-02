@@ -1,0 +1,10 @@
+*Vertices 4
+1 "Artista_A"
+2 "Artista_B"
+3 "Artista_C"
+4 "Artista_D"
+*Arcs
+1 2 10
+2 3 10
+3 4 10
+4 1 10
