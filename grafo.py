@@ -212,11 +212,12 @@ class Grafo:
         # Fórmula padrão de proximidade: (Total de nós - 1) / Soma das distâncias
         return (self.num_vertices - 1) / soma_dist
 
+
     # CENTRALIDADE DE INTERMEDIAÇÃO (BETWEENNESS)
     # O algoritmo mapeia todos os caminhos mais curtos possíveis entre todos os pares de artistas da rede. 
     # Em seguida, ele conta em quantos desses caminhos ideais o artista em questão aparece como um intermediário obrigatório. 
     # Ter um valor alto significa que uma quantidade massiva de fluxos de informação ou caminhos dependem diretamente desse vértice para transitar de uma região do grafo para outra.
-    def centralidade_intermediacao(self, rotulo_no):
+    def centralidade_intermediacao(self, rotulo_no, aproximado=True):
         # Betweenness Centrality: Mede o quanto este artista age como uma "ponte" no sistema. 
         # Se tirar ele, os caminhos curtos entre os outros artistas quebram?
 
@@ -226,7 +227,10 @@ class Grafo:
         travessias = 0
         # Usando Dijkstra 
         # limitamos a uma amostra aleatória de 50 nós para grafos gigantes.
-        amostra = min(self.num_vertices, 50) 
+        if aproximado:
+            amostra = min(self.num_vertices, 50) 
+        else:
+            amostra = self.num_vertices
         
         for i in range(amostra):
             if i == v_alvo: continue

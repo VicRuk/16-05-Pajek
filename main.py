@@ -45,6 +45,14 @@ def main():
     ci = grafo.centralidade_intermediacao("Artista_0")
     print(f" Centralidade de Intermediação (Aproximada): {ci:.6f}\n")
 
+    # print("\n[*] Calculando centralidades para TODOS os nós")
+    # for v in grafo.vertices:
+    #     cp = grafo.centralidade_proximidade(v.informacao)
+    #     ci = grafo.centralidade_intermediacao(v.informacao, aproximado=True)
+        
+    #     print(f" -> {v.informacao} | Proximidade: {cp:.4f} | Intermediação: {ci:.4f}")
+    # print("--------------------------------------------------\n")
+
     print("[*] Testando Carregamento Pajek...")
     grafo = Grafo()
     grafo.carregar_pajek(arquivo_pajek)
